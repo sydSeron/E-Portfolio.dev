@@ -466,30 +466,30 @@ nav {
     text-decoration: underline;
 }
 
-/* Contact Page Styles */
+/* Professional Contact Page Styles */
 .contact-intro {
     text-align: center;
-    margin: 40px 0;
+    margin: 50px auto;
     padding: 0 20px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 600px;
 }
 
 .contact-intro h2 {
-    color: #bb86fc;
-    font-size: 2.5em;
+    color: rgba(2, 216, 253, 0.966);
+    font-size: 2.2em;
     margin-bottom: 15px;
+    font-weight: 600;
 }
 
 .contact-intro p {
     color: #e0e0e0;
     font-size: 1.1em;
     line-height: 1.6;
+    font-weight: 300;
 }
 
 .contact-content {
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto 80px auto;
     padding: 0 20px;
 }
@@ -497,31 +497,26 @@ nav {
 .contact-info {
     background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
     border: 1px solid #333333;
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 40px;
-}
-
-.contact-info h3 {
-    color: #bb86fc;
-    margin-bottom: 25px;
-    font-size: 1.4em;
-    text-align: center;
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-    padding: 15px;
-    background: #333333;
-    border-radius: 8px;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
     transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 
 .contact-item:hover {
-    background: #3a3a3a;
-    transform: translateX(5px);
+    background: rgba(2, 216, 253, 0.05);
+    border-color: rgba(2, 216, 253, 0.2);
+    transform: translateY(-2px);
 }
 
 .contact-item:last-child {
@@ -529,33 +524,48 @@ nav {
 }
 
 .contact-icon {
-    font-size: 1.5em;
-    margin-right: 15px;
-    width: 40px;
-    text-align: center;
+    font-size: 1.4em;
+    margin-right: 20px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(2, 216, 253, 0.1);
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.contact-details {
+    flex: 1;
 }
 
 .contact-details strong {
     display: block;
-    color: #bb86fc;
-    margin-bottom: 4px;
+    color: rgba(2, 216, 253, 0.966);
+    margin-bottom: 5px;
     font-size: 0.9em;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .contact-details a {
-    color: #e0e0e0;
+    color: #ffffff;
     text-decoration: none;
+    font-size: 1.1em;
     transition: color 0.3s ease;
+    font-weight: 400;
 }
 
 .contact-details a:hover {
-    color: #bb86fc;
-    text-decoration: underline;
+    color: rgba(2, 216, 253, 0.966);
 }
 
 .contact-details span {
-    color: #e0e0e0;
+    color: #ffffff;
+    font-size: 1.1em;
+    font-weight: 400;
 }
 
 /* Ensure footer doesn't overlap */
