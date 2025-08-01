@@ -1,0 +1,44 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #1e1e1e;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #ffffff;
+}
+
+a {
+    color: #bb86fc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+pre {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    padding: 10px;
+    overflow: auto;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #1e1e1e;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
