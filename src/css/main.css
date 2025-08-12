@@ -64,9 +64,15 @@ pre {
 }
 
 a {
-    color: rgba(2, 216, 253, 0.966);
+    color: #E3B8B8;
 }
 
 a:hover {
-    color: #3700b3;
+    color: #FF8128;
+}
+
+.contact-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }
