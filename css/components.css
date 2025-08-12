@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-    color: #bb86fc;
+    color: #E3B8B8;
     text-decoration: none;
 }
 
@@ -56,7 +56,7 @@ a:hover {
 .button {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #bb86fc;
+    background-color: #E3B8B8;
     color: #121212;
     text-decoration: none;
     border-radius: 6px;
@@ -68,14 +68,14 @@ a:hover {
 }
 
 .button:hover {
-    background-color: #9965f4;
+    background-color: #FF8128;
 }
 
 /* Modern Navigation Bar Styles */
 header {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    background: linear-gradient(135deg, #034C36 0%, #003332 50%, #BDCDCF 100%);
     padding: 20px 0;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px20px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -88,16 +88,16 @@ header h1 {
     margin: 0 0 8px 0;
     font-size: 2.5em;
     font-weight: 700;
-    background: linear-gradient(45deg, rgba(2, 216, 253, 0.966), #bb86fc);
+    background: linear-gradient(45deg, #F2E0DF, #E3B8B8, #FF8128);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 20px rgba(2, 216, 253, 0.3);
+    text-shadow: 0 0 20px rgba(242, 224, 223, 0.3);
 }
 
 .subtitle {
     text-align: center;
-    color: rgba(2, 216, 253, 0.966);
+    color: #E3B8B8;
     font-size: 1.1em;
     margin: 0 0 25px 0;
     font-weight: 300;
@@ -122,7 +122,7 @@ nav {
     font-weight: 500;
     font-size: 0.95em;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: linear-gradient(145deg, transparent, rgba(255, 255, 255, 0.05));
+    background: linear-gradient(145deg, transparent, rgba(227, 184, 184, 0.05));
     border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
     text-transform: uppercase;
@@ -136,7 +136,7 @@ nav {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(2, 216, 253, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(227, 184, 184, 0.3), transparent);
     transition: left 0.5s ease;
 }
 
@@ -151,17 +151,17 @@ nav {
     left: 50%;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, rgba(2, 216, 253, 0.966), #bb86fc);
+    background: linear-gradient(90deg, #E3B8B8, #034C36);
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
 
 .nav-link:hover {
-    color: rgba(2, 216, 253, 0.966);
-    background: linear-gradient(145deg, rgba(2, 216, 253, 0.1), rgba(187, 134, 252, 0.1));
-    border-color: rgba(2, 216, 253, 0.3);
+    color: #E3B8B8;
+    background: linear-gradient(145deg, rgba(227, 184, 184, 0.1), rgba(3, 76, 54, 0.1));
+    border-color: rgba(227, 184, 184, 0.3);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(2, 216, 253, 0.2);
+    box-shadow: 0 5px 15px rgba(227, 184, 184, 0.2);
 }
 
 .nav-link:hover::after {
@@ -177,7 +177,7 @@ nav {
 .nav-link[href*="about.html"]:hover,
 .nav-link[href*="projects.html"]:hover,
 .nav-link[href*="contact.html"]:hover {
-    background: linear-gradient(145deg, rgba(2, 216, 253, 0.15), rgba(187, 134, 252, 0.15));
+    background: linear-gradient(145deg, rgba(227, 184, 184, 0.15), rgba(3, 76, 54, 0.15));
 }
 
 /* Mobile Navigation */
@@ -225,8 +225,8 @@ nav {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: linear-gradient(145deg, rgba(2, 216, 253, 0.1), rgba(187, 134, 252, 0.1));
-    border: 1px solid rgba(2, 216, 253, 0.3);
+    background: linear-gradient(145deg, rgba(227, 184, 184, 0.1), rgba(3, 76, 54, 0.1));
+    border: 1px solid rgba(227, 184, 184, 0.3);
     border-radius: 50%;
     width: 45px;
     height: 45px;
@@ -235,14 +235,14 @@ nav {
     justify-content: center;
     font-size: 1.2em;
     cursor: pointer;
-    color: rgba(2, 216, 253, 0.966);
+    color: #E3B8B8;
     transition: all 0.3s ease;
 }
 
 .theme-toggle:hover {
-    background: linear-gradient(145deg, rgba(2, 216, 253, 0.2), rgba(187, 134, 252, 0.2));
+    background: linear-gradient(145deg, rgba(227, 184, 184, 0.2), rgba(3, 76, 54, 0.2));
     transform: rotate(180deg);
-    box-shadow: 0 5px 15px rgba(2, 216, 253, 0.3);
+    box-shadow: 0 5px 15px rgba(227, 184, 184, 0.3);
 }
 
 .hero {
@@ -267,14 +267,14 @@ nav {
 }
 
 .button.primary {
-    background-color: rgba(2, 216, 253, 0.966);
+    background-color: #E3B8B8;
     color: #121212;
 }
 
 .button.secondary {
     background-color: transparent;
-    color: rgba(2, 216, 253, 0.966);
-    border: 2px solid rgba(2, 216, 253, 0.966);
+    color: #E3B8B8;
+    border: 2px solid #E3B8B8;
 }
 
 .skills-preview, .featured-projects {
@@ -293,20 +293,20 @@ nav {
 }
 
 .skill-item {
-    background-color: #1e1e1e;
+    background-color: #034C36;
     padding: 20px;
     border-radius: 8px;
-    border: 1px solid #333333;
+    border: 1px solid #BDCDCF;
     text-align: center;
 }
 
 .skill-item h4 {
     margin: 0 0 10px 0;
-    color: #bb86fc;
+    color: #E3B8B8;
 }
 
 .skillink{
-    color: rgba(2, 216, 253, 0.966);
+    color: #E3B8B8;
 }
 
 .projects-preview {
@@ -317,10 +317,10 @@ nav {
 }
 
 .project-card {
-    background-color: #1e1e1e;
+    background-color: #034C36;
     padding: 20px;
     border-radius: 8px;
-    border: 1px solid #333333;
+    border: 1px solid #BDCDCF;
     transition: transform 0.3s ease;
 }
 
@@ -329,7 +329,7 @@ nav {
 }
 
 .project-link {
-    color: rgba(2, 216, 253, 0.966);
+    color: #E3B8B8;
     text-decoration: none;
     font-weight: bold;
 }
@@ -349,7 +349,7 @@ nav {
 }
 
 .projects-intro h2 {
-    color: #bb86fc;
+    color: #ffffff;
     font-size: 2.5em;
     margin-bottom: 10px;
 }
@@ -370,8 +370,8 @@ nav {
 }
 
 .project-card {
-    background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
-    border: 1px solid #333333;
+    background: linear-gradient(145deg, #034C36, #003332);
+    border: 1px solid #BDCDCF;
     border-radius: 12px;
     padding: 25px;
     transition: all 0.3s ease;
@@ -381,13 +381,14 @@ nav {
 
 .project-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(187, 134, 252, 0.15);
-    border-color: #bb86fc;
+    box-shadow: 0 15px 35px rgba(227, 184, 184, 0.15);
+    border-color: #E3B8B8;
 }
 
 .project-card.featured {
-    border: 2px solid #bb86fc;
-    background: linear-gradient(145deg, #2a1a3a, #1e1e1e);
+    border: 2px solid #FF8128;
+    background: linear-gradient(145deg, #034C36, #003332);
+    box-shadow: 0 8px 25px rgba(255, 129, 40, 0.15);
 }
 
 .project-card.featured::before {
@@ -395,12 +396,21 @@ nav {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #bb86fc;
-    color: #121212;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.8em;
+    background: #FF8128;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.75em;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(255, 129, 40, 0.3);
+}
+
+.project-card.featured:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(255, 129, 40, 0.25);
+    border-color: #FF8128;
 }
 
 .project-icon {
@@ -443,17 +453,17 @@ nav {
 }
 
 .tech-tag {
-    background: #333333;
-    color: #bb86fc;
+    background: #033D2E;
+    color: #E3B8B8;
     padding: 4px 10px;
     border-radius: 15px;
     font-size: 0.8em;
     font-weight: 500;
-    border: 1px solid #444444;
+    border: 1px solid #BDCDCF;
 }
 
 .project-link {
-    color: #bb86fc;
+    color: #E3B8B8;
     text-decoration: none;
     font-weight: bold;
     display: inline-flex;
@@ -462,7 +472,7 @@ nav {
 }
 
 .project-link:hover {
-    color: #9965f4;
+    color: #FF8128;
     text-decoration: underline;
 }
 
@@ -475,7 +485,7 @@ nav {
 }
 
 .contact-intro h2 {
-    color: rgba(2, 216, 253, 0.966);
+    color: #ffffff;
     font-size: 2.2em;
     margin-bottom: 15px;
     font-weight: 600;
@@ -495,8 +505,8 @@ nav {
 }
 
 .contact-info {
-    background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
-    border: 1px solid #333333;
+    background: linear-gradient(145deg, #034C36, #003332);
+    border: 1px solid #BDCDCF;
     border-radius: 15px;
     padding: 40px 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -514,8 +524,8 @@ nav {
 }
 
 .contact-item:hover {
-    background: rgba(2, 216, 253, 0.05);
-    border-color: rgba(2, 216, 253, 0.2);
+    background: rgba(227, 184, 184, 0.05);
+    border-color: rgba(227, 184, 184, 0.2);
     transform: translateY(-2px);
 }
 
@@ -531,7 +541,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(2, 216, 253, 0.1);
+    background: rgba(227, 184, 184, 0.1);
     border-radius: 8px;
     flex-shrink: 0;
 }
@@ -542,7 +552,7 @@ nav {
 
 .contact-details strong {
     display: block;
-    color: rgba(2, 216, 253, 0.966);
+    color: #E3B8B8;
     margin-bottom: 5px;
     font-size: 0.9em;
     font-weight: 600;
