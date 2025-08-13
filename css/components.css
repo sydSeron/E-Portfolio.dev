@@ -499,29 +499,34 @@ nav {
 }
 
 .contact-content {
-    max-width: 500px;
-    margin: 0 auto 80px auto;
-    padding: 0 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .contact-info {
-    background: linear-gradient(145deg, #034C36, #003332);
-    border: 1px solid #BDCDCF;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, #034C36, #003332);
     border-radius: 15px;
-    padding: 40px 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 2px solid #BDCDCF;
+    box-sizing: border-box;
+    margin-bottom: 30px; /* Add space before footer */
 }
 
 .contact-item {
     display: flex;
-    align-items: flex-start; /* Changed from center to flex-start */
+    align-items: flex-start;
     gap: 15px;
-    padding: 20px;
-    background: linear-gradient(135deg, #034C36, #003332);
+    padding: 15px;
+    background: rgba(189, 205, 207, 0.1);
     border: 1px solid #BDCDCF;
     border-radius: 10px;
-    margin-bottom: 15px;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .contact-details {
@@ -529,7 +534,8 @@ nav {
     flex-direction: column;
     gap: 5px;
     flex: 1;
-    min-width: 0; /* Important for text wrapping */
+    min-width: 0;
+    overflow: hidden;
 }
 
 .contact-details a {
@@ -538,162 +544,75 @@ nav {
     transition: color 0.3s ease;
     word-wrap: break-word;
     overflow-wrap: break-word;
-}
-
-.contact-item:hover {
-    background: rgba(227, 184, 184, 0.05);
-    border-color: rgba(227, 184, 184, 0.2);
-    transform: translateY(-2px);
-}
-
-.contact-item:last-child {
-    margin-bottom: 0;
-}
-
-.contact-icon {
-    font-size: 1.4em;
-    margin-right: 20px;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(227, 184, 184, 0.1);
-    border-radius: 8px;
-    flex-shrink: 0;
-}
-
-.contact-details strong {
     display: block;
-    color: #E3B8B8;
-    margin-bottom: 5px;
-    font-size: 0.9em;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
-.contact-details a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: color 0.3s ease;
-    font-weight: 400;
-}
-
-.contact-details a:hover {
-    color: rgba(2, 216, 253, 0.966);
-}
-
-.contact-details span {
-    color: #ffffff;
-    font-size: 1.1em;
-    font-weight: 400;
-}
-
-/* Ensure footer doesn't overlap */
-footer {
-    margin-top: 60px;
-    padding: 20px;
-    clear: both;
-}
-
-/* Responsive Design */
+/* Mobile responsive fixes */
 @media (max-width: 768px) {
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .project-card {
-        padding: 20px;
-    }
-    
-    .projects-intro h2 {
-        font-size: 2em;
-    }
-    
     .contact-content {
-        margin-bottom: 60px;
+        padding: 15px;
+        margin: 0 15px;
     }
     
     .contact-info {
-        padding: 20px;
-        margin-bottom: 30px;
-    }
-    
-    .contact-intro h2 {
-        font-size: 2em;
+        padding: 15px;
+        margin-bottom: 20px;
     }
     
     .contact-item {
         padding: 12px;
-    }
-    
-    .contact-icon {
-        width: 35px;
-        font-size: 1.3em;
+        gap: 12px;
     }
     
     .contact-details a {
-        word-break: break-all;
         font-size: 0.9em;
         line-height: 1.4;
-    }
-    
-    .contact-item {
-        padding: 15px 10px;
-        min-height: auto;
-    }
-    
-    .contact-details {
-        flex: 1;
-        min-width: 0; /* Allow flex item to shrink below content size */
+        word-break: break-all;
     }
     
     .contact-details strong {
-        display: block;
-        margin-bottom: 5px;
         font-size: 0.95em;
     }
 }
 
 @media (max-width: 480px) {
-    nav {
-        flex-direction: column;
-        gap: 8px;
+    .contact-content {
+        padding: 10px;
+        margin: 0 10px;
     }
     
-    .nav-link {
-        width: 200px;
-        text-align: center;
+    .contact-info {
+        padding: 12px;
+    }
+    
+    .contact-item {
+        padding: 10px;
+        gap: 10px;
     }
     
     .contact-details a {
         font-size: 0.85em;
         word-break: break-word;
         overflow-wrap: break-word;
-        hyphens: auto;
-    }
-    
-    .contact-item {
-        padding: 12px 8px;
-        gap: 10px;
     }
     
     .contact-icon img {
         width: 20px !important;
         height: 20px !important;
     }
+}
+
+/* Ensure footer doesn't overlap */
+main {
+    padding-bottom: 30px;
+}
+
+footer {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #034C36, #003332);
+    border-top: 1px solid #BDCDCF;
 }
 
 /* Coming Soon Badge Styles */
