@@ -514,13 +514,30 @@ nav {
 
 .contact-item {
     display: flex;
-    align-items: center;
-    margin-bottom: 25px;
+    align-items: flex-start; /* Changed from center to flex-start */
+    gap: 15px;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.02);
+    background: linear-gradient(135deg, #034C36, #003332);
+    border: 1px solid #BDCDCF;
     border-radius: 10px;
+    margin-bottom: 15px;
     transition: all 0.3s ease;
-    border: 1px solid transparent;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0; /* Important for text wrapping */
+}
+
+.contact-details a {
+    color: #E3B8B8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .contact-item:hover {
@@ -544,10 +561,6 @@ nav {
     background: rgba(227, 184, 184, 0.1);
     border-radius: 8px;
     flex-shrink: 0;
-}
-
-.contact-details {
-    flex: 1;
 }
 
 .contact-details strong {
@@ -630,28 +643,60 @@ footer {
         width: 35px;
         font-size: 1.3em;
     }
-}
-
-@media (min-width: 1400px) {
-    .projects-grid {
-        grid-template-columns: repeat(3, 1fr);
+    
+    .contact-details a {
+        word-break: break-all;
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+    
+    .contact-item {
+        padding: 15px 10px;
+        min-height: auto;
+    }
+    
+    .contact-details {
+        flex: 1;
+        min-width: 0; /* Allow flex item to shrink below content size */
+    }
+    
+    .contact-details strong {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 0.95em;
     }
 }
 
-.view-all-container {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .nav-link {
+        width: 200px;
+        text-align: center;
+    }
+    
+    .contact-details a {
+        font-size: 0.85em;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .contact-item {
+        padding: 12px 8px;
+        gap: 10px;
+    }
+    
+    .contact-icon img {
+        width: 20px !important;
+        height: 20px !important;
+    }
 }
 
-.interests-section {
-    margin-bottom: 60px;
-    padding-bottom: 40px;
-    opacity: 1 !important;
-    display: block !important;
-}
-
+/* Coming Soon Badge Styles */
 .project-card.coming-soon {
     opacity: 0.8;
     position: relative;
@@ -672,6 +717,7 @@ footer {
     letter-spacing: 0.5px;
 }
 
+/* Disabled Link Styles */
 .project-link.disabled {
     color: #888;
     cursor: not-allowed;
@@ -683,6 +729,7 @@ footer {
     transform: none;
 }
 
+/* Card Hover Effects */
 .project-card.coming-soon:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(255, 129, 40, 0.15);
