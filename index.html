@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jan Emman Seron | Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" aria-label="Main navigation">
+      <div class="header-inner">
+        <nav class="nav-left" aria-label="Primary">
+          <a href="#top">Home</a>
+          <a href="#about">About</a>
+        </nav>
+
+        <div class="brand" aria-label="Site title">
+          <a class="brand-link" href="#top">
+            <span class="brand-title">Jan Emman Seron</span>
+            <span class="brand-tagline">Computer Science Student &amp; Passionate Backend Developer</span>
+          </a>
+        </div>
+
+        <nav class="nav-right" aria-label="Primary">
+          <a href="#projects">Projects</a>
+          <a href="#contact" class="nav-pill">Contact</a>
+        </nav>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span aria-hidden="true">Menu</span>
+        </button>
+      </div>
+
+      <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile" hidden>
+        <a href="#top">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-label="Intro">
+        <div class="hero-inner">
+          <p class="hero-kicker">Portfolio</p>
+          <h1 class="hero-title">
+            <span
+              class="typewriter"
+              id="introType"
+              aria-hidden="true"
+              data-text="Computer Science student seeking OJT/Internship to apply skills, gain experience, and contribute to projects."
+            ></span>
+            <span class="sr-only"
+              >Computer Science student seeking OJT/Internship to apply skills, gain experience, and contribute to projects.</span
+            >
+          </h1>
+          <div class="hero-actions">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn btn-ghost" href="#contact">Contact</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects" aria-label="Projects">
+        <div class="section-inner">
+          <h2>Projects</h2>
+          <p class="muted">Add your projects here (cards, links, screenshots) when you’re ready.</p>
+          <div class="grid" role="list">
+            <article class="card" role="listitem">
+              <h3>Community Disaster Hub</h3>
+              <p class="muted">An android application connecting disaster victims with helpers using modern Android technologies.</p>
+              <p class="card-meta"><span class="meta-label">Tech:</span></p>
+              <ul class="tags" aria-label="Languages and tools used">
+                <li class="tag">Android Studio</li>
+                <li class="tag">Kotlin</li>
+                <li class="tag">Dart</li>
+                <li class="tag">Firebase</li>
+              </ul>
+              <div class="card-links">
+                <a class="link-btn" href="https://github.com/sydSeron/Hackathon-Team404-CommunityDisasterHub" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+              </div>
+            </article>
+            <article class="card" role="listitem">
+              <h3>Interactive Zoo Catalog for Manila Zoo</h3>
+              <p class="muted">QR code-based animal information system with location services and real-time data.</p>
+              <p class="card-meta"><span class="meta-label">Tech:</span></p>
+              <ul class="tags" aria-label="Languages and tools used">
+                <li class="tag">Android Studio</li>
+                <li class="tag">Java/Kotlin</li>
+                <li class="tag">Dart</li>
+                <li class="tag">Firebase</li>
+              </ul>
+              <div class="card-links">
+                <a class="link-btn" href="https://github.com/sydSeron/interactive_zoo_catalog_using_qr_code_1" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+              </div>
+            </article>
+            <article class="card" role="listitem">
+              <h3>Home Inventory Management System</h3>
+              <p class="muted">Mobile app for tracking household items, managing warranties, and organizing home inventory.</p>
+              <p class="card-meta"><span class="meta-label">Tech:</span></p>
+              <ul class="tags" aria-label="Languages and tools used">
+                <li class="tag">JScript</li>
+                <li class="tag">ExpoDev</li>
+                <li class="tag">Kotlin</li>
+              </ul>
+              <div class="card-links">
+                <a class="link-btn" href="https://github.com/sydSeron/Home-Inventory-Management-System" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+              </div>
+            </article>
+
+            <article class="card" role="listitem">
+              <h3>Mobile Student Information System</h3>
+              <p class="muted">Student Information for Mobile Application Course.</p>
+              <p class="card-meta"><span class="meta-label">Tech:</span></p>
+              <ul class="tags" aria-label="Languages and tools used">
+                <li class="tag">JScript</li>
+                <li class="tag">Kotlin</li>
+                <li class="tag">Ruby</li>
+                <li class="tag">Swift</li>
+              </ul>
+              <div class="card-links">
+                <a class="link-btn" href="https://github.com/sydSeron/Information-System-MobileApplication" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+              </div>
+            </article>
+
+            <article class="card" role="listitem">
+              <h3>SARN-BERT</h3>
+              <p class="muted">A Transformer-Based Deep Learning Model for an Efficient Resume Screening and Candidate Ranking System for Recruitment Processes (Thesis).</p>
+              <p class="card-meta"><span class="meta-label">Tech:</span></p>
+              <ul class="tags" aria-label="Languages and tools used">
+                <li class="tag">Python</li>
+                <li class="tag">HTML</li>
+                <li class="tag">CSS</li>
+                <li class="tag">JS</li>
+              </ul>
+              <div class="card-links">
+                <a class="link-btn" href="https://sarnbert.app/" target="_blank" rel="noopener noreferrer">View Live</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about" aria-label="About">
+        <div class="section-inner">
+          <h2>About</h2>
+          <p class="muted">
+            A detail-oriented Computer Science undergraduate actively seeking On-the-Job Training or internship opportunities to bridge academic learning with practical industry experience. With a strong foundation in programming, web development, and system design, I am eager to apply my technical skills to real-world projects that drive innovation and efficiency. I bring proven strengths in teamwork, adaptability, and problem-solving, developed through academic research, hackathon participation, and organizational leadership roles. My goal is to learn from experienced professionals, contribute meaningfully to collaborative projects, and grow into a responsible and versatile technology practitioner. I am particularly motivated to support the creation of secure, reliable, and user-focused systems that address both organizational needs and broader social impact.
+          </p>
+
+          <h3 class="subhead">Skills</h3>
+          <ul class="skill-list" aria-label="Skills overview">
+            <li class="skill-item">
+              <span class="skill-label">Full-Stack Web Development</span>
+              <span class="skill-value">Developing and deploying local and server-based web systems</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-label">Programming &amp; Frameworks</span>
+              <span class="skill-value">Java, C#, Python, Laravel (PHP), FastAPI</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-label">Web Development</span>
+              <span class="skill-value">HTML, CSS, JavaScript, React.js, Next.js, Vite</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-label">Databases &amp; Data Tools</span>
+              <span class="skill-value">MySQL, PostgreSQL, SQL, Microsoft Excel</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-label">UI &amp; Styling</span>
+              <span class="skill-value">Tailwind CSS</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-label">Deployment &amp; APIs</span>
+              <span class="skill-value">RESTful API integration, Cloudflared Tunnels</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-label">Networking &amp; Systems</span>
+              <span class="skill-value">Basic networking concepts, PC reformatting, system navigation</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-label">Productivity Tools</span>
+              <span class="skill-value">Microsoft Office Suite, File management, Documentation, Research writing</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-label">Creative Tools</span>
+              <span class="skill-value">Photo and video editing (Canva, CapCut, Filmora)</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="contact" aria-label="Contact">
+        <div class="section-inner">
+          <h2>Contact</h2>
+          <p class="muted">Feel free to reach out through any of the following.</p>
+
+          <dl class="contact-list" aria-label="Contact details">
+            <div class="contact-row">
+              <dt>Email</dt>
+              <dd>
+                <a class="contact-link" href="mailto:seron.e.bscs@gmail.com"><span class="contact-value">seron.e.bscs@gmail.com</span></a>
+              </dd>
+            </div>
+            <div class="contact-row">
+              <dt>Phone</dt>
+              <dd>
+                <a class="contact-link" href="tel:+639926484271"><span class="contact-value">+63 992 648 4271</span></a>
+              </dd>
+            </div>
+            <div class="contact-row">
+              <dt>Facebook</dt>
+              <dd>
+                <a class="contact-link" href="https://www.facebook.com/NorthOne11" target="_blank" rel="noopener noreferrer">
+                  <span class="contact-value">facebook.com/NorthOne11</span>
+                </a>
+              </dd>
+            </div>
+            <div class="contact-row">
+              <dt>Education</dt>
+              <dd><span class="contact-value">Eulogio "Amang" Rodriguez Institute of Science and Technology</span></dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="muted">© 2026 Jan Emman Seron</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
