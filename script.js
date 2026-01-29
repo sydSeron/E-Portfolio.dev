@@ -1,5 +1,40 @@
 document.documentElement.classList.add('js');
 
+// Loading screen (blink logo for ~3s, then reveal page)
+(() => {
+  const loader = document.getElementById('loadingScreen');
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!document.body) return;
+
+  const finish = () => {
+    document.body.classList.remove('is-loading');
+    document.body.classList.add('is-loaded');
+
+    // Allow other animations (typewriter, etc.) to start after loader.
+    document.dispatchEvent(new Event('loader:done'));
+
+    if (loader instanceof HTMLElement) {
+      loader.classList.add('is-hidden');
+      window.setTimeout(() => {
+        loader.hidden = true;
+      }, 360);
+    }
+  };
+
+  if (prefersReducedMotion) {
+    if (loader instanceof HTMLElement) loader.hidden = true;
+    finish();
+    return;
+  }
+
+  // Allow click/tap to skip early.
+  const skip = () => finish();
+  loader?.addEventListener('click', skip, { once: true });
+
+  window.setTimeout(finish, 3000);
+})();
+
 (() => {
   const header = document.querySelector('.site-header');
   if (!(header instanceof HTMLElement)) return;
@@ -146,7 +181,16 @@ function runTypewriter(element, options = {}) {
 }
 
 const introType = document.getElementById('introType');
-if (introType) runTypewriter(introType);
+const startIntroTypewriter = () => {
+  if (introType) runTypewriter(introType);
+};
+
+// Start the typewriter after the loading screen finishes.
+if (document.body.classList.contains('is-loaded') || !document.body.classList.contains('is-loading')) {
+  startIntroTypewriter();
+} else {
+  document.addEventListener('loader:done', startIntroTypewriter, { once: true });
+}
 
 // Fade-in-on-scroll reveal for section text/content.
 (() => {
@@ -233,4 +277,137 @@ if (introType) runTypewriter(introType);
       }
     });
   });
+})();
+
+// Cursor glow effect (subtle dark circular glow following the pointer)
+(() => {
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  const canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+  const finePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+  if (!canHover || !finePointer) return;
+
+  const glow = document.createElement('div');
+  glow.className = 'cursor-glow';
+  glow.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(glow);
+
+  let targetX = window.innerWidth / 2;
+  let targetY = window.innerHeight / 2;
+  let rafId = 0;
+
+  const size = 520;
+  const half = size / 2;
+
+  const renderOnce = () => {
+    rafId = 0;
+    glow.style.transform = `translate3d(${Math.round(targetX - half)}px, ${Math.round(targetY - half)}px, 0)`;
+  };
+
+  const requestRender = () => {
+    if (rafId) return;
+    rafId = window.requestAnimationFrame(renderOnce);
+  };
+
+  window.addEventListener(
+    'mousemove',
+    (event) => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+      glow.classList.add('is-visible');
+      requestRender();
+    },
+    { passive: true }
+  );
+
+  window.addEventListener(
+    'mouseleave',
+    () => {
+      glow.classList.remove('is-visible');
+    },
+    { passive: true }
+  );
+})();
+
+// Active nav link highlighting (based on the section currently in view)
+(() => {
+  const header = document.querySelector('.site-header');
+  if (!(header instanceof HTMLElement)) return;
+
+  const navLinks = Array.from(
+    document.querySelectorAll('.nav-right a[href^="#"], #mobileMenu a[href^="#"]')
+  ).filter((el) => el instanceof HTMLAnchorElement);
+
+  if (navLinks.length === 0) return;
+
+  const idFromLink = (link) => {
+    const href = link.getAttribute('href') || '';
+    if (!href.startsWith('#')) return null;
+    const id = href.slice(1).trim();
+    return id || null;
+  };
+
+  const sectionIds = Array.from(new Set(navLinks.map(idFromLink).filter(Boolean)));
+  const sections = sectionIds
+    .map((id) => document.getElementById(id))
+    .filter((el) => el instanceof HTMLElement);
+
+  if (sections.length === 0) return;
+
+  let rafId = 0;
+
+  const setActive = (activeId) => {
+    navLinks.forEach((link) => {
+      const linkId = idFromLink(link);
+      const isActive = linkId === activeId;
+
+      link.classList.toggle('is-active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+  };
+
+  const getActiveSectionId = () => {
+    const y = header.offsetHeight + 24;
+    let closest = null;
+
+    for (const section of sections) {
+      const rect = section.getBoundingClientRect();
+
+      // The section that crosses the "anchor line" under the sticky header wins.
+      if (rect.top <= y && rect.bottom >= y) return section.id;
+
+      const dist = Math.abs(rect.top - y);
+      if (!closest || dist < closest.dist) closest = { id: section.id, dist };
+    }
+
+    return closest?.id || sections[0].id;
+  };
+
+  const updateActive = () => {
+    rafId = 0;
+    setActive(getActiveSectionId());
+  };
+
+  const requestUpdate = () => {
+    if (rafId) return;
+    rafId = window.requestAnimationFrame(updateActive);
+  };
+
+  // Update on scroll/resize/hash changes.
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+  window.addEventListener('hashchange', requestUpdate);
+
+  // Also update immediately after clicking a nav link.
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      const targetId = idFromLink(link);
+      if (targetId) setActive(targetId);
+    });
+  });
+
+  // Initial state.
+  requestUpdate();
 })();

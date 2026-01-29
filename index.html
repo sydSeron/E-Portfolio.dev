@@ -6,8 +6,15 @@
     <title>Jan Emman Seron | Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="is-loading">
     <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="loading-screen" id="loadingScreen" role="status" aria-live="polite" aria-label="Loading" tabindex="-1">
+      <div class="loading-screen__inner">
+        <img class="loading-screen__logo" src="images/name%20icon.png" alt="Jan Emman Seron" width="420" height="420" decoding="async" loading="eager" />
+        <span class="sr-only">Loading…</span>
+      </div>
+    </div>
 
     <header class="site-header" aria-label="Main navigation">
       <div class="header-inner">
@@ -20,10 +27,21 @@
 
         <nav class="nav-right" aria-label="Primary">
           <a href="#top">Home</a>
-          <a href="#about">About</a>
           <a href="#projects">Projects</a>
+          <a href="#about">About Me</a>
+          <a href="#skills">Skills</a>
           <button class="nav-btn" type="button" id="contactBtn" aria-haspopup="dialog" aria-controls="contactPanel">Contact</button>
         </nav>
+
+        <a class="download-btn" href="files/EMMAN%20SERON%20-%20RESUME.pdf" download aria-label="Download resume" title="Download resume">
+          <svg class="download-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path
+              fill="currentColor"
+              d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4.01 4a1 1 0 0 1-1.38 0l-4.01-4a1 1 0 1 1 1.4-1.42L11 13.59V4a1 1 0 0 1 1-1Zm-7 15a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"
+            />
+          </svg>
+          <span class="sr-only">Download resume</span>
+        </a>
 
         <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
           <span aria-hidden="true">Menu</span>
@@ -32,8 +50,12 @@
 
       <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile" hidden>
         <a href="#top">Home</a>
-        <a href="#about">About</a>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="files/EMMAN%20SERON%20-%20RESUME.pdf" download aria-label="Download resume">
+          Download Resume
+        </a>
         <button class="mobile-menu-btn" type="button" id="mobileContactBtn" aria-haspopup="dialog" aria-controls="contactPanel">Contact</button>
       </nav>
     </header>
@@ -47,10 +69,10 @@
               class="typewriter"
               id="introType"
               aria-hidden="true"
-              data-text="Computer Science student seeking OJT/Internship to apply skills, gain experience, and contribute to projects."
+              data-text="Building reliable and secure systems through full-stack development, database design, and automation."
             ></span>
             <span class="sr-only"
-              >Computer Science student seeking OJT/Internship to apply skills, gain experience, and contribute to projects.</span
+              >Building reliable and secure systems through full-stack development, database design, and automation.</span
             >
           </h1>
           <div class="hero-actions">
@@ -273,50 +295,70 @@
 
       <section class="section" id="about" aria-label="About">
         <div class="section-inner">
-          <h2>About</h2>
-          <p class="muted">
-            A detail-oriented Computer Science undergraduate actively seeking On-the-Job Training or internship opportunities to bridge academic learning with practical industry experience. With a strong foundation in programming, web development, and system design, I am eager to apply my technical skills to real-world projects that drive innovation and efficiency. I bring proven strengths in teamwork, adaptability, and problem-solving, developed through academic research, hackathon participation, and organizational leadership roles. My goal is to learn from experienced professionals, contribute meaningfully to collaborative projects, and grow into a responsible and versatile technology practitioner. I am particularly motivated to support the creation of secure, reliable, and user-focused systems that address both organizational needs and broader social impact.
-          </p>
+          <h2>About Me</h2>
+          <div class="section-divider" aria-hidden="true"></div>
 
-          <h3 class="subhead">Skills</h3>
+          <div class="about-layout">
+            <div class="about-name">
+              <h3 class="about-title">Jan Emman Seron</h3>
+            </div>
+
+            <div class="about-description">
+              <p class="muted">
+                A detail-oriented Computer Science undergraduate actively seeking On-the-Job Training or internship opportunities to bridge academic learning with practical industry experience. With a strong foundation in programming, web development, and system design, I am eager to apply my technical skills to real-world projects that drive innovation and efficiency. I bring proven strengths in teamwork, adaptability, and problem-solving, developed through academic research, hackathon participation, and organizational leadership roles. My goal is to learn from experienced professionals, contribute meaningfully to collaborative projects, and grow into a responsible and versatile technology practitioner. I am particularly motivated to support the creation of secure, reliable, and user-focused systems that address both organizational needs and broader social impact.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills" aria-label="Skills">
+        <div class="section-inner">
+          <h2>Skills</h2>
           <ul class="skill-list" aria-label="Skills overview">
-            <li class="skill-item">
+            <li class="skill-item skill--fullstack">
               <span class="skill-label">Full-Stack Web Development</span>
               <span class="skill-value">Developing and deploying local and server-based web systems</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item skill--programming">
               <span class="skill-label">Programming &amp; Frameworks</span>
               <span class="skill-value">Java, C#, Python, Laravel (PHP), FastAPI</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item skill--webdev">
               <span class="skill-label">Web Development</span>
               <span class="skill-value">HTML, CSS, JavaScript, React.js, Next.js, Vite</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item skill--databases">
               <span class="skill-label">Databases &amp; Data Tools</span>
               <span class="skill-value">MySQL, PostgreSQL, SQL, Microsoft Excel</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item skill--ui">
               <span class="skill-label">UI &amp; Styling</span>
               <span class="skill-value">Tailwind CSS</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item skill--apis">
               <span class="skill-label">Deployment &amp; APIs</span>
               <span class="skill-value">RESTful API integration, Cloudflared Tunnels</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item skill--networking">
               <span class="skill-label">Networking &amp; Systems</span>
               <span class="skill-value">Basic networking concepts, PC reformatting, system navigation</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item skill--productivity">
               <span class="skill-label">Productivity Tools</span>
               <span class="skill-value">Microsoft Office Suite, File management, Documentation, Research writing</span>
             </li>
-            <li class="skill-item">
+            <li class="skill-item skill--creative">
               <span class="skill-label">Creative Tools</span>
               <span class="skill-value">Photo and video editing (Canva, CapCut, Filmora)</span>
             </li>
           </ul>
+
+          <footer class="site-footer" aria-label="Credits">
+            <div class="footer-inner">
+              <p class="muted">© 2026 Jan Emman Seron</p>
+            </div>
+          </footer>
         </div>
       </section>
 
@@ -414,12 +456,6 @@
         </ul>
       </div>
     </div>
-
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <p class="muted">© 2026 Jan Emman Seron</p>
-      </div>
-    </footer>
 
     <script src="script.js"></script>
   </body>
