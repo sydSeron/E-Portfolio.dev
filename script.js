@@ -36,6 +36,81 @@ if (menuBtn && mobileMenu) {
   });
 }
 
+// Contact panel (drawer)
+(() => {
+  const contactBtn = document.getElementById('contactBtn');
+  const mobileContactBtn = document.getElementById('mobileContactBtn');
+  const panel = document.getElementById('contactPanel');
+  const closeBtn = document.getElementById('contactPanelClose');
+  const drawer = panel?.querySelector('.contact-panel__drawer');
+
+  if (!(panel instanceof HTMLElement) || !(drawer instanceof HTMLElement)) return;
+
+  let lastFocused = null;
+  let closeTimeout = null;
+
+  const onKeyDown = (event) => {
+    if (event.key === 'Escape') closePanel();
+  };
+
+  function openPanel() {
+    if (closeTimeout) {
+      window.clearTimeout(closeTimeout);
+      closeTimeout = null;
+    }
+
+    lastFocused = document.activeElement;
+    panel.hidden = false;
+    panel.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('panel-open');
+
+    // Allow transition to run after un-hiding.
+    window.requestAnimationFrame(() => {
+      panel.classList.add('is-open');
+      drawer.focus();
+    });
+
+    document.addEventListener('keydown', onKeyDown);
+  }
+
+  function closePanel() {
+    panel.classList.remove('is-open');
+    panel.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('panel-open');
+    document.removeEventListener('keydown', onKeyDown);
+
+    closeTimeout = window.setTimeout(() => {
+      panel.hidden = true;
+      closeTimeout = null;
+    }, 240);
+
+    if (lastFocused && typeof lastFocused.focus === 'function') {
+      lastFocused.focus();
+    }
+  }
+
+  const openHandler = (event) => {
+    event.preventDefault?.();
+    setMenuOpen(false);
+    openPanel();
+  };
+
+  contactBtn?.addEventListener('click', openHandler);
+  mobileContactBtn?.addEventListener('click', openHandler);
+  closeBtn?.addEventListener('click', closePanel);
+
+  panel.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    if (target.closest('[data-close="true"]')) closePanel();
+  });
+
+  panel.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target instanceof HTMLAnchorElement) closePanel();
+  });
+})();
+
 function runTypewriter(element, options = {}) {
   const fullText = (element.getAttribute('data-text') || '').trim();
   if (!fullText) return;
@@ -112,4 +187,50 @@ if (introType) runTypewriter(introType);
   );
 
   sectionChildren.forEach((el) => revealObserver.observe(el));
+})();
+
+// Project card flip previews
+(() => {
+  const cards = Array.from(document.querySelectorAll('#projects .card[data-preview]'));
+  if (cards.length === 0) return;
+
+  const toggleFlip = (card) => {
+    const isFlipped = card.classList.toggle('is-flipped');
+    card.setAttribute('aria-expanded', String(isFlipped));
+
+    const backFace = card.querySelector('.card-back');
+    if (backFace) backFace.setAttribute('aria-hidden', String(!isFlipped));
+  };
+
+  cards.forEach((card) => {
+    if (!(card instanceof HTMLElement)) return;
+
+    card.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) return;
+
+      // Don't flip when user clicks a real link/button.
+      if (target.closest('a, button')) return;
+      toggleFlip(card);
+    });
+
+    card.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest('a, button')) return;
+      event.preventDefault();
+      toggleFlip(card);
+    });
+
+    // If the user clicks the GitHub/live link, ensure the card returns to front.
+    card.addEventListener('click', (event) => {
+      const target = event.target;
+      if (target instanceof HTMLAnchorElement) {
+        card.classList.remove('is-flipped');
+        card.setAttribute('aria-expanded', 'false');
+        const backFace = card.querySelector('.card-back');
+        if (backFace) backFace.setAttribute('aria-hidden', 'true');
+      }
+    });
+  });
 })();
